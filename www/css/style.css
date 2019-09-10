@@ -1,0 +1,11 @@
+/**/
+.grid {
+  display: grid;
+}
+.camera{
+  width: 100%;
+  height: 6vh;
+}
+.rangeSelect{
+  width: 100%;
+}
