@@ -24,7 +24,7 @@ body{
 .rangeSelect{
   position: relative;
 }
-.rangeSelect .barOpacidade, .barSaturacao, .barCinza, .barDesfoque{
+.rangeSelect .bar{
   position: absolute;
   z-index: 1;
   left: 2px;

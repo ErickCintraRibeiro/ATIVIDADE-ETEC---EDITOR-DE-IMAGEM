@@ -20,60 +20,84 @@
             </div>
             <div class="gridContent2">
               <button class="camera" id="camera">CAMERA</button>
-              <img src="img/fofofaca.jpg" class="imgResponsive" alt="" id="foto">
+            <div id="imageContainer" class="center">
+				        <img src="img/fofofaca.jpg" class="imgResponsive" alt="" id="foto">
+			      </div>
+              
             </div>
             <div class="gridContent3">
 
             </div>
             <br>
+				<form id="imageEditor">
+					<p>
+          <div class="">
+            <h4>ESCALA DE CINZA</h4>
             <div class="rangeSelect">
-                <span class="barOpacidade"><span class="fillOpacidade"></span></span>
-                <input class="slider" id="Opacidade" type="range"  value="100" max="100" oninput="changeOpacidade()">        
+            <span class="bar"><span class="fill"></span></span>
+						<input class="slider" id="gs" name="gs" type="range" min=0 max=100 value=0>
             </div>
+          </div>
+					</p>
+
+					<p>
+          <div class="">
+            <h4>DESFOQUE</h4>
             <div class="rangeSelect">
-                <span class="barSaturacao"><span class="fillSaturacao"></span></span>
-                <input class="slider" id="Saturacao" type="range"  value="0" max="790" oninput="changeSaturacao()">
+						<span class="bar"><span class="fill"></span></span>
+						<input class="slider" id="blur" name="blur" type="range" min=0 max=10 value=0>
             </div>
+          </div>
+					</p>
+					<p>
+          <div class="">
+            <h4>OPACIDADE</h4>
             <div class="rangeSelect">
-                <span class="barCinza"><span class="fillCinza"></span></span>
-                <input class="slider" id="escalaCinza" type="range"  value="0" max="100" oninput="changeEscala()">
+						<span class="bar"><span class="fill"></span></span>
+						<input class="slider" id="opacity" name="opacity" type="range" min=0 max=100 value=100>
             </div>
+          </div>
+					</p>
+
+					<p>
+          <div>
+            <h4>SATURAÇÃO</h4>
             <div class="rangeSelect">
-                <span class="barDesfoque"><span class="fillDesfoque"></span></span>
-                <input class="slider" id="Desfoque" type="range"  value="0" max="10" oninput="changeDesfoque()">
-            </div>                        
-        </div>
+						<span class="bar"><span class="fill"></span></span>
+						<input class="slider" id="saturate" name="saturate" type="range" min=0 max=500 value=100>
+            </div>
+          </div>
+					</p>
+
+					<input type="reset" form="imageEditor" id="reset" value="Reset" />
+
+				</form>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script>
-            var box = document.getElementById('foto');
-            
-            
-            function changeOpacidade(){
-                var range = document.getElementById('Opacidade');
-                var val = range.value;
-                box.style.filter = "opacity(" + val + "%)";
+        
+            // editing image via css properties
+            function editImage() {
+              
+              var gs 		 = $("#gs").val();      // grayscale
+              var blur 	 = $("#blur").val();    // blur
+              var opacity  = $("#opacity").val(); //opacity
+              var saturate = $("#saturate").val();//saturate
+
+
+              var filter = 'grayscale(' + gs+ '%) blur(' + blur + 'px) opacity(' + opacity + '%) saturate(' + saturate + '%)';
+
+              $("#imageContainer img").css("filter", filter);
+              $("#imageContainer img").css("-webkit-filter", filter); 
 
             }
-            function changeSaturacao(){
-                var range = document.getElementById('Saturacao');
-                var val = range.value;
-                box.style.filter = "saturate(" + val + "%)";
+            $("input[type=range]").change(editImage).mousemove(editImage);
+            $('#imageEditor').on('reset', function () {
+              setTimeout(function() {
+                editImage();
+              },0);
+            });
 
-            }            
-            function changeEscala(){
-                var range = document.getElementById('escalaCinza');
-                var val = range.value;
-                box.style.filter = "grayscale(" + val + "%)";
-            }
-                function changeDesfoque(){
-                var range = document.getElementById('Desfoque');
-                var val = range.value;
-                box.style.filter = "blur(" + val + "px)";
-            }
-
-        // SATURACAO //
-
-</script>
+      </script>
 </body>
 </html>
