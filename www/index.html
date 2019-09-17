@@ -16,22 +16,23 @@
       <div class="container">
         <div class="grid">
             <div class="gridContent1">
-              <h1>FILTROS</h1>
+              <div class="row">
+              <img class="logo" src="img/bd.svg" alt="">
+              <h1><b>FILTROS</b></h1>
+              </div>
             </div>
             <div class="gridContent2">
-              <button class="camera" id="camera">CAMERA</button>
+              <button class="camera" id="camera"><b>CAMERA</b></button>
             <div id="imageContainer" class="center">
-				        <img src="img/fofofaca.jpg" class="imgResponsive" alt="" id="foto">
+				        <img class="imgResponsive" alt="" id="foto">
 			      </div>
               
             </div>
-            <div class="gridContent3">
-
-            </div>
-            <br>
+        <div class="gridContent3">
 				<form id="imageEditor">
 					<p>
-          <div class="">
+          <div> 
+          <div class="center">
             <h4>ESCALA DE CINZA</h4>
             <div class="rangeSelect">
             <span class="bar"><span class="fill"></span></span>
@@ -41,7 +42,7 @@
 					</p>
 
 					<p>
-          <div class="">
+          <div class="center">
             <h4>DESFOQUE</h4>
             <div class="rangeSelect">
 						<span class="bar"><span class="fill"></span></span>
@@ -50,7 +51,7 @@
           </div>
 					</p>
 					<p>
-          <div class="">
+          <div class="center">
             <h4>OPACIDADE</h4>
             <div class="rangeSelect">
 						<span class="bar"><span class="fill"></span></span>
@@ -60,7 +61,7 @@
 					</p>
 
 					<p>
-          <div>
+          <div class="center">
             <h4>SATURAÇÃO</h4>
             <div class="rangeSelect">
 						<span class="bar"><span class="fill"></span></span>
@@ -68,11 +69,16 @@
             </div>
           </div>
 					</p>
+        
+        </form>
+        </div>
 
-					<input type="reset" form="imageEditor" id="reset" value="Reset" />
+				
+        </div>
+            <br>
 
-				</form>
       </div>
+
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
       <script>
         
@@ -87,17 +93,10 @@
 
               var filter = 'grayscale(' + gs+ '%) blur(' + blur + 'px) opacity(' + opacity + '%) saturate(' + saturate + '%)';
 
-              $("#imageContainer img").css("filter", filter);
-              $("#imageContainer img").css("-webkit-filter", filter); 
+              $("#foto").css("filter", filter);
 
             }
             $("input[type=range]").change(editImage).mousemove(editImage);
-            $('#imageEditor').on('reset', function () {
-              setTimeout(function() {
-                editImage();
-              },0);
-            });
-
       </script>
 </body>
 </html>
