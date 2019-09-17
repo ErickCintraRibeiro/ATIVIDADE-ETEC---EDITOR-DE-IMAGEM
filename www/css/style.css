@@ -1,25 +1,31 @@
 /**/
 body{
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #e5e5e5;
+  background-color: white;
+}
+.container{
+
+  margin-top: 20%;
 }
 .grid {
   display: grid;
 }
 .camera{
-  width: 100%;
-  height: 6vh;
-}
-.imgResponsive{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+  width: 70%;
+  height: 6vh;
+  background: transparent;
+  border: 5px solid #6200ee;
+  border-radius: 10px;
+}
+.imgResponsive{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
 .rangeSelect{
   position: relative;
@@ -29,7 +35,7 @@ body{
   z-index: 1;
   left: 2px;
   top: 4px;
-  width: 100%;
+  width: 80%;
   height: 10px;
   border-radius: 5px;
   background-color: #c6aee7;
@@ -45,7 +51,7 @@ body{
   position: relative;
   z-index: 2;
   -webkit-appearance: none;
-  width: 100%;
+  width: 80%;
   height: 10px;
   border-radius: 5px;
   outline: none;
@@ -67,4 +73,20 @@ body{
 }
 .rangeSelect .slider:active::-webkit-slider-thumb{
   box-shadow: 0 0 0 25px rgba(98,0,238,.3);
+}
+.gridContent1{
+  display: inline;
+  margin-bottom: 5%;
+}
+.logo, h1{
+  width: 10vh;
+  display: inline
+}
+h1{
+  margin-bottom: 5%;
+}
+.gridContent1, .gridContent3{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
