@@ -1,17 +1,11 @@
 /**/
 body{
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
-  height: 100vh;
   justify-content: center;
   align-items: center;
   background-color: white;
 }
 .container{
+
   margin-top: 20%;
 }
 .grid {
@@ -91,7 +85,7 @@ body{
 h1{
   margin-bottom: 5%;
 }
-.center, gridContent1{
+.gridContent1, .gridContent3{
   display: block;
   margin-left: auto;
   margin-right: auto;
